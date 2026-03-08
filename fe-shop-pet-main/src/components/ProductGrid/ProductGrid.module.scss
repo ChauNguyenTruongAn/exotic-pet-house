@@ -1,0 +1,82 @@
+@use '@/styles/_variables.scss' as *;
+
+.wrapper {
+    margin: 2rem 0;
+}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .action{
+            display: block;
+        }
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin-bottom: 0.8rem;
+    }
+
+    .name {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .price {
+        font-weight: bold;
+        color: $primary-color;
+    }
+}
+
+.action{
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    display: none;
+}
+
+.wrapper-action{
+    display: flex;
+    flex-direction: column;
+}
+
+.action-button{
+    border: 2px gainsboro solid;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-right: 10px;
+
+    &:first-child{
+        margin-bottom: 20px;
+    }
+
+    &:hover{
+        background-color: #0cdfff27;
+        border: 2px #17a2b8 dashed;
+
+        cursor: pointer;
+    }
+}

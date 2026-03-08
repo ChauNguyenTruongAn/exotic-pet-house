@@ -1,0 +1,144 @@
+@use '@/styles/_variables.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.modal {
+    width: 500px;
+    max-width: 90vw;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+// --- Header ---
+.modal-header {
+    padding: 15px 24px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: #343a40;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        line-height: 1;
+        color: #adb5bd;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover { color: #343a40; }
+    }
+}
+
+// --- Body ---
+.modal-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #495057;
+        }
+
+        .custom-input, .custom-select {
+            padding: 10px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+
+            &:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            }
+
+            &.disabled {
+                background-color: #e9ecef;
+                color: #6c757d;
+                cursor: not-allowed;
+            }
+        }
+        
+        .custom-select {
+            background-color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+// --- Footer ---
+.modal-footer {
+    padding: 15px 24px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.btn-cancel {
+            background-color: #e9ecef;
+            color: #495057;
+            &:hover { background-color: #dee2e6; }
+        }
+
+        &.btn-save {
+            background-color: #ffc107; // Màu vàng cho nút Cập nhật (Edit)
+            color: #212529;
+            box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+            &:hover { 
+                background-color: #ffca2c; 
+                transform: translateY(-1px);
+            }
+        }
+    }
+}

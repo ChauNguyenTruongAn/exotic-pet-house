@@ -1,0 +1,105 @@
+@use '@/styles/_variables.scss' as *;
+
+.footer {
+    background: #E81413;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+/* ==========================
+   MAIN LAYOUT 3 / 7
+========================== */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+/* ===== LEFT (3 parts) ===== */
+.left {
+    flex: 3;
+
+    p {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+    }
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 1rem;
+}
+
+/* SOCIAL ICONS */
+.socials {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+
+    a {
+        color: white;
+        font-size: 1.8rem;
+        transition: 0.3s;
+
+        &:hover {
+            color: #ffd700;
+        }
+    }
+}
+
+/* ===== RIGHT (7 parts) ===== */
+.right {
+    flex: 7;
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 65px;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+}
+
+/* PROMOTION BOX */
+.promoBox {
+    display: flex;
+
+    input {
+        flex: 1;
+        padding: 0.9rem;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+    }
+
+    button {
+        background: $primary-color;
+        color: white;
+        border: none;
+        padding: 0 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+
+        &:hover {
+            background: #e04a18;
+        }
+    }
+}
+
+/* COPYRIGHT */
+.bottom {
+    text-align: center;
+    margin-top: 1.5rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}

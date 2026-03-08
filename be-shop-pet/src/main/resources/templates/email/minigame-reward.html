@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nhận thưởng Minigame</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            background: linear-gradient(90deg, #ff7043, #ff8a65);
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 25px;
+            text-align: center;
+            color: #333333;
+        }
+
+        .content h2 {
+            color: #ff7043;
+            margin-bottom: 10px;
+        }
+
+        .reward-name {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .coupon-box {
+            margin: 25px auto;
+            padding: 18px;
+            border: 2px dashed #ff7043;
+            background-color: #fff3e0;
+            border-radius: 10px;
+        }
+
+        .coupon-label {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .coupon-code {
+            margin-top: 8px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5722;
+            letter-spacing: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: #ff7043;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #ff5722;
+        }
+
+        .footer {
+            background-color: #fafafa;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #888888;
+            border-top: 1px solid #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            🎉 Chúc mừng <span th:text="${username}">bạn</span>!
+        </div>
+
+        <div class="content">
+            <h2>Bạn vừa chiến thắng Minigame!</h2>
+
+            <p class="reward-name">
+                Phần thưởng của bạn:
+                <strong th:text="${rewardName}">Voucher giảm giá</strong>
+            </p>
+
+            <div class="coupon-box">
+                <div class="coupon-label">MÃ KHUYẾN MÃI</div>
+                <div class="coupon-code" th:text="${promotionCode}">
+                    ABCD1234
+                </div>
+            </div>
+
+            <p>
+                Hãy sử dụng mã này khi thanh toán để nhận ưu đãi nhé!
+            </p>
+
+            <a th:href="${urlFrontEnd}" class="btn">
+                🎮 Đi mua sắm thôi.
+            </a>
+        </div>
+
+        <div class="footer">
+            Đây là email tự động, vui lòng không trả lời.<br />
+            © 2025 BeShopPet
+        </div>
+    </div>
+</body>
+
+</html>

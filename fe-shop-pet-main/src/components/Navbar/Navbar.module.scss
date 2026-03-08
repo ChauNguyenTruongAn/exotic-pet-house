@@ -1,0 +1,48 @@
+@use "@/styles/_variables.scss" as *;
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px 0;
+    background: #ffffff;
+}
+
+.link {
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: "Momosignature";
+    color: $color-text;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0%;
+        height: 2px;
+        background: $primary-color;
+        border-radius: 2px;
+        transition: width 0.3s ease;
+    }
+
+    &:hover {
+        color: $primary-color;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+.active {
+    color: $primary-color;
+
+    &::after {
+        width: 100%;
+    }
+}

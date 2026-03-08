@@ -1,0 +1,213 @@
+@use '@/styles/_variables.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.modal {
+    width: 900px; // Cố định chiều rộng chuẩn hoặc dùng 80vw
+    max-width: 95vw;
+    height: 85vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+// --- Header ---
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+
+    h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        color: #999;
+        &:hover { color: #333; }
+    }
+}
+
+// --- Body ---
+.modal-body {
+    flex: 1;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.general-info {
+    display: flex;
+    gap: 20px;
+    
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            &:disabled {
+                background-color: #f9f9f9;
+                color: #777;
+            }
+        }
+    }
+}
+
+// --- Table (CSS Grid) ---
+.table-container {
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    flex: 1;              /* Chiếm hết khoảng trống còn lại */
+    overflow-y: auto;     /* Bật thanh cuộn tại đây */
+    min-height: 0;
+}
+
+.table-row {
+    display: grid;
+    // Định nghĩa cột: Tên(rộng nhất) - Ảnh - SL - Giá - Thành tiền - Xóa
+    grid-template-columns: 2fr 80px 100px 120px 120px 50px; 
+    gap: 10px;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    &.header {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #495057;
+        font-size: 0.9rem;
+        
+        /* Sticky chuẩn */
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 2px solid #dee2e6;
+    }
+    
+    // Ẩn cột xóa khi không edit
+    &:not(:has(.btn-delete)) {
+         grid-template-columns: 2fr 80px 100px 120px 120px; // Layout lại khi ko có nút xóa
+    }
+
+    .center { text-align: center; display: flex; justify-content: center; }
+    .right { text-align: right; display: flex; justify-content: flex-end; }
+    
+    .product-col {
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            span { font-size: 0.8rem; color: #888; }
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+    }
+
+    .thumb {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    input.input-qty { width: 60px; text-align: center; padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+    input.input-price { width: 100%; text-align: right; padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+
+    .btn-delete {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ffebee;
+        color: #d32f2f;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        &:hover { background-color: #ffcdd2; }
+    }
+}
+
+// --- Footer ---
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .total-section {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        span { color: #d32f2f; margin-left: 10px; font-size: 1.3rem; }
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+
+        button {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            &:hover { opacity: 0.9; }
+        }
+
+        .btn-edit { background-color: #ffc107; color: #000; }
+        .btn-save { background-color: #28a745; color: white; }
+        .btn-cancel { background-color: #dc3545; color: white; }
+        .btn-close { background-color: #6c757d; color: white; }
+    }
+}

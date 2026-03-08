@@ -1,0 +1,189 @@
+@use '@/styles/_variables.scss' as *;
+
+$primary: #007bff;
+$bg-light: #f8f9fa;
+$border: #e9ecef;
+$text-main: #343a40;
+$text-sec: #6c757d;
+
+.wrapper {
+    padding: 24px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+// --- Header ---
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    border-bottom: 1px solid $border;
+
+    .header-title {
+        h2 { margin: 0; font-size: 1.5rem; color: $text-main; }
+        p { margin: 4px 0 0; font-size: 0.9rem; color: $text-sec; }
+    }
+
+    .btn-add {
+        background-color: $primary;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 5px rgba(0,123,255,0.3);
+
+        &:hover {
+            background-color: darken($primary, 10%);
+            transform: translateY(-1px);
+        }
+    }
+}
+
+// --- Toolbar ---
+.toolbar {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        background-color: $bg-light;
+        border: 1px solid $border;
+        border-radius: 8px;
+        padding: 0 15px;
+        width: 350px;
+        transition: border-color 0.2s;
+
+        &:focus-within { border-color: $primary; background-color: white; }
+        i { color: $text-sec; font-size: 14px; }
+        
+        input {
+            width: 100%; border: none; background: transparent;
+            padding: 12px 10px; outline: none; font-size: 0.95rem; color: $text-main;
+        }
+    }
+
+    .stats { font-size: 0.9rem; color: $text-sec; strong { color: $text-main; } }
+}
+
+// --- Table ---
+.table-wrapper { width: 100%; overflow-x: auto; }
+
+.table-header {
+    display: flex;
+    background-color: $bg-light;
+    padding: 12px 30px;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+
+    .th-item {
+        font-size: 0.85rem; font-weight: 700; color: $text-sec;
+        text-transform: uppercase; letter-spacing: 0.5px;
+    }
+}
+
+.table-body {
+    .empty-state {
+        padding: 60px; text-align: center; color: $text-sec;
+        i { font-size: 40px; margin-bottom: 15px; opacity: 0.5; color: #f57c00; }
+    }
+
+    .table-row {
+        display: flex;
+        padding: 12px 30px;
+        border-bottom: 1px solid $border;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:last-child { border-bottom: none; }
+        &:hover { background-color: #fcfcfc; }
+
+        .td-item { display: flex; align-items: center; font-size: 0.95rem; color: $text-main; }
+
+        // --- Custom Styles for Promotion ---
+
+        // 1. Code Badge (Giống vé coupon)
+        .code-badge {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            color: #d63384; // Màu hồng đậm
+            background-color: #fce4ec;
+            padding: 6px 12px;
+            border: 1px dashed #d63384;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            display: flex; align-items: center; gap: 6px;
+            i { font-size: 0.8rem; }
+        }
+
+        // 2. Info Col
+        .info-col {
+            display: flex; flex-direction: column;
+            .name-text { font-weight: 600; margin-bottom: 2px; }
+            .sub-text { font-size: 0.8rem; color: $text-sec; }
+        }
+
+        // 3. Value Col
+        .value-col {
+            font-weight: 700; font-size: 1rem;
+            .value-percent { color: #e91e63; }
+            .value-amount { color: #2e7d32; }
+        }
+
+        // 4. Date Col (Stacked)
+        .date-col {
+            display: flex; flex-direction: column; gap: 2px; font-size: 0.85rem; color: $text-sec;
+            .date-row { display: flex; align-items: center; gap: 6px; }
+            .date-arrow { font-size: 0.7rem; color: #adb5bd; margin-left: 6px; margin-top: -2px; margin-bottom: -2px; }
+        }
+
+        // 5. Status Badge
+        .status-badge {
+            padding: 4px 10px; border-radius: 20px; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+            
+            &.active { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+            &.upcoming { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+            &.expired { background-color: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+            &.disabled { background-color: #f5f5f5; color: #9e9e9e; border: 1px solid #e0e0e0; }
+        }
+
+        // Actions
+        .actions {
+            display: flex; gap: 10px; opacity: 0.7; transition: opacity 0.2s;
+            button {
+                width: 32px; height: 32px; border: none; border-radius: 6px;
+                display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;
+                
+                &.edit { background-color: #fff3e0; color: #ef6c00; &:hover { background-color: #ffe0b2; } }
+                &.delete { background-color: #ffebee; color: #c62828; &:hover { background-color: #ffcdd2; } }
+            }
+        }
+        &:hover .actions { opacity: 1; }
+    }
+}

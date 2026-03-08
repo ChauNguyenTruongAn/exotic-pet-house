@@ -1,0 +1,49 @@
+.breadcrumb {
+    font-size: 14px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 0;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        &:not(:last-child) {
+            color: #555;
+            cursor: pointer;
+            transition: 0.2s ease;
+
+            &:hover {
+                color: #e60023;
+            }
+
+            &::after {
+                content: "›";
+                font-size: 14px;
+                color: #bbb;
+                padding-left: 4px;
+                padding-right: 2px;
+            }
+        }
+
+        &:last-child {
+            font-weight: 600;
+            color: #111;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 13px;
+        gap: 4px;
+
+        span::after {
+            padding-left: 2px;
+        }
+    }
+}

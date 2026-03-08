@@ -1,0 +1,211 @@
+@use '@/styles/_variables.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.modal {
+    width: 900px;
+    max-width: 95vw;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 90vh;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+// --- Header ---
+.modal-header {
+    padding: 15px 24px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: #343a40;
+    }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        line-height: 1;
+        color: #adb5bd;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover { color: #343a40; }
+    }
+}
+
+// --- Body ---
+.modal-body {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    overflow-y: auto;
+
+    // Cột trái
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .image-preview-box {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            transition: border-color 0.2s;
+
+            &:hover { border-color: #ced4da; }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .no-image {
+                text-align: center;
+                color: #adb5bd;
+                i { font-size: 30px; margin-bottom: 8px; }
+                p { margin: 0; font-size: 0.85rem; }
+            }
+        }
+
+        .info-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    }
+
+    // Cột phải
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            label {
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: #495057;
+            }
+
+            .custom-input, .custom-select, .custom-textarea {
+                padding: 10px;
+                border: 1px solid #ced4da;
+                border-radius: 6px;
+                font-size: 1rem;
+                outline: none;
+                transition: border-color 0.2s, box-shadow 0.2s;
+                width: 100%;
+
+                &:focus {
+                    border-color: #007bff;
+                    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+                }
+            }
+            
+            .custom-select {
+                background-color: white;
+                cursor: pointer;
+            }
+
+            .custom-textarea {
+                resize: vertical;
+                min-height: 80px;
+                font-family: inherit;
+            }
+        }
+
+        .row-group {
+            display: flex;
+            gap: 15px;
+            .form-group { flex: 1; }
+        }
+    }
+}
+
+// --- Footer ---
+.modal-footer {
+    padding: 15px 24px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.btn-cancel {
+            background-color: #e9ecef;
+            color: #495057;
+            &:hover { background-color: #dee2e6; }
+        }
+
+        &.btn-save {
+            background-color: #28a745; // Màu xanh cho Thêm mới
+            color: white;
+            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+            &:hover { 
+                background-color: #218838; 
+                transform: translateY(-1px);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    .left-column .image-preview-box {
+        width: 150px;
+        margin: 0 auto;
+    }
+}

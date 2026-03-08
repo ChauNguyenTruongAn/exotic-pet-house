@@ -1,0 +1,188 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* ===== Game box ===== */
+.game {
+    position: relative;
+    width: 380px;
+    padding: 28px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #ffffff, #f1f1f1);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    animation: popIn 0.35s ease;
+}
+
+/* Close */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff6a00;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* ===== Setting ===== */
+.setting {
+    margin-bottom: 10px;
+
+    label {
+        font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        color: #333;
+    }
+
+    input {
+        padding: 8px;
+        border-radius: 8px;
+        border: 2px solid #eee;
+        text-align: center;
+        font-weight: 600;
+
+        &:focus {
+            outline: none;
+            border-color: #ff6a00;
+        }
+    }
+}
+
+/* ===== Timer ===== */
+.timer {
+    font-size: 3.4rem;
+    font-weight: 900;
+    margin: 18px 0;
+    color: #222;
+    text-shadow: 0 0 8px rgba(255, 106, 0, 0.2);
+}
+
+.timerRunning {
+    animation: pulse 1s infinite;
+    color: #ff6a00;
+}
+
+/* ===== Buttons ===== */
+.actions {
+    display: flex;
+    gap: 12px;
+
+    button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.15s ease;
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        &:first-child {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: #fff;
+        }
+
+        &:last-child {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+}
+
+/* ===== Result ===== */
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    animation: popIn 0.3s ease;
+}
+
+.win {
+    background: #eafff2;
+    color: #27ae60;
+    animation: winShake 0.4s ease;
+}
+
+.lose {
+    background: #fff0f0;
+    color: #e74c3c;
+}
+
+/* ===== Animations ===== */
+@keyframes popIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes winShake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-4px);
+    }
+    50% {
+        transform: translateX(4px);
+    }
+    75% {
+        transform: translateX(-4px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

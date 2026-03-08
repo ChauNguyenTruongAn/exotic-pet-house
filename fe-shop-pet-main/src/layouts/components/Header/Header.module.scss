@@ -1,0 +1,237 @@
+@use '@/styles/_variables.scss' as *;
+
+.header {
+  background-color: $primary-color;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TOP BAR ===== */
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.4rem 2rem;
+  background-color: $primary-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  .topLeft { flex: 1; }
+
+  .topRight {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    .topLink {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.25s;
+
+      &:hover { color: #ffdd57; }
+    }
+
+    .logoutBtn {
+      padding: 0.35rem 1rem;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.25s;
+
+      i { font-size: 0.85rem; }
+
+      &:hover {
+        background: #fff;
+        color: $primary-color;
+        transform: translateY(-2px);
+      }
+    }
+
+    .username { font-weight: 700; font-size: large; }
+  }
+}
+
+.authBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.loginBtn,
+.registerBtn {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.25s ease;
+}
+
+.loginBtn {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+}
+
+.registerBtn {
+    background: #ff9800;
+    color: white;
+    box-shadow: 0 2px 6px rgba(255, 152, 0, 0.4);
+
+    &:hover {
+        background: #fb8c00;
+    }
+}
+
+.loginBtn i,
+.registerBtn i {
+    font-size: 14px;
+}
+
+
+/* ===== MIDDLE BAR ===== */
+.middleBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: $primary-color;
+
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    input {
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      border: none;
+      width: 240px;
+      outline: none;
+    }
+
+    button {
+      background: #4caf50;
+      border: none;
+      color: white;
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.25s;
+
+      &:hover { background: #43a047; }
+    }
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo { width: 150px; height: auto; }
+  }
+
+  .actionRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+
+    .cart {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      font-size: 1.3rem;
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
+
+      .cartCount {
+        position: absolute;
+        top: -6px;
+        right: -10px;
+        background: #ffcc00;
+        color: #000;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 50%;
+      }
+    }
+
+    .mini-game{
+      flex: 1;
+    }
+
+
+    .actions{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .orderHistory {
+      display: flex;
+       align-items: center;
+      justify-content: end;
+      position: relative;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: #fff;
+      height: 40px;
+      width: 40px;
+      svg { vertical-align: middle; }
+    }
+  }
+}
+
+/* ===== NAVBAR ===== */
+.bottomBar {
+  background-color: #fff;
+  color: #000;
+  padding: 0.7rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    font-weight: 700;
+    color: #222;
+    margin: 0 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover { color: $primary-color; }
+  }
+}
+
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .middleBar {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+
+    .actionRight { justify-content: center; }
+    .search input { width: 100%; }
+  }
+
+  .topBar { padding: 0.4rem 1rem; }
+  .bottomBar { padding: 0.7rem 1rem; flex-wrap: wrap; }
+}

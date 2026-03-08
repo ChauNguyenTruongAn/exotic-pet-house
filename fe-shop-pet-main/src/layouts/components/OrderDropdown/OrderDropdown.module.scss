@@ -1,0 +1,99 @@
+.dropdown {
+    position: absolute;
+    top: 27px;
+    right: 0;
+    width: 320px;
+    max-height: 450px;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 200;
+    padding: 0.5rem 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.orderItem {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transition: background 0.2s, transform 0.1s;
+
+    &:hover {
+        background-color: #f9f9f9;
+        transform: translateY(-1px);
+    }
+
+    .orderHeader {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #333;
+
+        .orderId {
+            color: #1976d2;
+        }
+
+        .orderDate {
+            font-size: 0.8rem;
+            color: #666;
+        }
+    }
+
+    .orderProducts {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.85rem;
+        color: #444;
+
+        .productName {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .moreItems {
+            font-size: 0.75rem;
+            color: #888;
+        }
+    }
+
+    .orderFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: #555;
+
+        .total {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .status {
+            padding: 2px 8px;
+            border-radius: 12px;
+            background-color: #ffe082;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .icon {
+            color: #1976d2;
+        }
+    }
+}
+
+.dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}

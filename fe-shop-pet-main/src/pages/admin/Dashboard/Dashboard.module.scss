@@ -1,0 +1,476 @@
+@use "sass:color";
+@use '@/styles/_variables.scss' as *;
+
+.dashboard {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.loading {
+    padding: 60px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+// Filter Section
+.filterSection {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.periodSelect {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s;
+
+    &:hover {
+        border-color: #36a2eb;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #36a2eb;
+        box-shadow: 0 0 0 3px rgba(54, 162, 235, 0.1);
+    }
+}
+
+.customDates {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    input[type="date"] {
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        
+        &:focus {
+            outline: none;
+            border-color: #36a2eb;
+        }
+    }
+
+    span {
+        color: #666;
+        font-size: 14px;
+    }
+}
+
+.applyBtn {
+    padding: 10px 20px;
+    background: #36a2eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #2185d0;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// KPI Cards
+.kpiGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.kpiCard {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    border-left: 4px solid #36a2eb;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+}
+
+.kpiTitle {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.kpiValue {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 8px 0;
+}
+
+.kpiChange {
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+
+    &.positive {
+        color: #10b981;
+    }
+
+    &.negative {
+        color: #ef4444;
+    }
+}
+
+// Charts
+.chartRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.chartCard {
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h3 {
+        margin: 0 0 20px 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    canvas {
+        max-height: 300px !important;
+    }
+}
+
+// Tables
+.rowTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tableCard {
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h3 {
+        margin: 0 0 16px 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+}
+
+.tableWrapper {
+    max-height: 380px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+
+        &:hover {
+            background: #555;
+        }
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        font-size: 13px;
+        padding: 12px 8px;
+        border-bottom: 2px solid #e5e7eb;
+        color: #6b7280;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #f9fafb;
+    }
+
+    td {
+        padding: 12px 8px;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 14px;
+        color: #374151;
+    }
+
+    tbody tr {
+        transition: background 0.2s;
+
+        &:hover {
+            background: #f9fafb;
+        }
+    }
+}
+
+.productName {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: cover;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+.lowQty {
+    font-weight: 600;
+    color: #f59e0b;
+}
+
+.negative {
+    font-weight: 700;
+    color: #ef4444;
+}
+
+// Status Badges
+.badgePending {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badgeConfirmed {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badgeShipped {
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badgeDelivered {
+    background-color: #e9d5ff;
+    color: #6b21a8;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badgeCancelled {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+// Responsive
+@media (max-width: 1400px) {
+    .kpiGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .chartRow {
+        grid-template-columns: 1fr;
+    }
+
+    .rowTwo {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 16px;
+    }
+
+    .filterSection {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .kpiGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Thêm vào file scss hiện có của bạn */
+
+.subTitle {
+    font-size: 14px;
+    color: #888;
+    margin: 4px 0 0 0;
+}
+
+.refreshBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    
+    &:hover {
+        background: #f0f0f0;
+        transform: rotate(180deg);
+    }
+}
+
+.loadingBlock {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.kpiContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.badgeChange {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    
+    &.inc {
+        background: #d1fae5;
+        color: #065f46;
+    }
+    
+    &.dec {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+}
+
+.kpiSub {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 4px;
+}
+
+.chartWrapper {
+    height: 300px;
+    position: relative;
+}
+
+.customerName {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dateSmall {
+    font-size: 11px;
+    color: #999;
+}
+
+.loadingText {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
+/* Responsive updates */
+@media (max-width: 768px) {
+    .filters {
+        flex-wrap: wrap;
+        width: 100%;
+        
+        .periodSelect {
+            flex: 1;
+        }
+    }
+    
+    .customDates {
+        flex-basis: 100%;
+        order: 3;
+        margin-top: 8px;
+    }
+}

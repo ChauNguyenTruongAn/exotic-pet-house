@@ -1,0 +1,15 @@
+@use "sass:color";
+@use '@/styles/_variables.scss' as *;
+
+
+.admin-layout {
+    display: flex;
+
+    .content {
+        width: 100%;
+        margin-left: 250px;
+        min-height: 100vh;
+        background-color: #f5f6fa;
+    }
+
+}

@@ -1,0 +1,225 @@
+@use '@/styles/_variables.scss' as *;
+
+$primary: #007bff;
+$bg-light: #f8f9fa;
+$border: #e9ecef;
+$text-main: #343a40;
+$text-sec: #6c757d;
+
+.wrapper {
+    padding: 24px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+// --- Header ---
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    border-bottom: 1px solid $border;
+
+    .header-title {
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: $text-main;
+        }
+        p {
+            margin: 4px 0 0;
+            font-size: 0.9rem;
+            color: $text-sec;
+        }
+    }
+
+    .btn-add {
+        background-color: $primary;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 5px rgba(0,123,255,0.3);
+
+        &:hover {
+            background-color: darken($primary, 10%);
+            transform: translateY(-1px);
+        }
+    }
+}
+
+// --- Toolbar ---
+.toolbar {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        background-color: $bg-light;
+        border: 1px solid $border;
+        border-radius: 8px;
+        padding: 0 15px;
+        width: 350px;
+        transition: border-color 0.2s;
+
+        &:focus-within {
+            border-color: $primary;
+            background-color: white;
+        }
+
+        i { color: $text-sec; font-size: 14px; }
+        
+        input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 12px 10px;
+            outline: none;
+            font-size: 0.95rem;
+            color: $text-main;
+        }
+    }
+
+    .stats {
+        font-size: 0.9rem;
+        color: $text-sec;
+        strong { color: $text-main; }
+    }
+}
+
+// --- Table ---
+.table-wrapper {
+    width: 100%;
+}
+
+.table-header {
+    display: flex;
+    background-color: $bg-light;
+    padding: 12px 30px;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+
+    .th-item {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: $text-sec;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+.table-body {
+    .empty-state {
+        padding: 60px;
+        text-align: center;
+        color: $text-sec;
+        i { font-size: 40px; margin-bottom: 15px; opacity: 0.5; color: #2e7d32; }
+    }
+
+    .table-row {
+        display: flex;
+        padding: 16px 30px;
+        border-bottom: 1px solid $border;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:last-child { border-bottom: none; }
+        &:hover { background-color: #fcfcfc; }
+
+        // ID Column
+        .id-badge {
+            font-family: monospace;
+            font-weight: 600;
+            color: $text-sec;
+            background: $bg-light;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        // Species Info (Avatar + Name)
+        .species-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 1.1rem;
+                flex-shrink: 0;
+            }
+
+            .name-text {
+                font-weight: 600;
+                font-size: 1rem;
+                color: $text-main;
+            }
+        }
+
+        // Actions
+        .actions {
+            display: flex;
+            gap: 10px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        
+        &:hover .actions { opacity: 1; }
+
+        .btn-icon {
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+
+            &.edit {
+                background-color: #e3f2fd;
+                color: #1565c0;
+                &:hover { background-color: #2196f3; color: white; }
+            }
+
+            &.delete {
+                background-color: #ffebee;
+                color: #c62828;
+                &:hover { background-color: #f44336; color: white; }
+            }
+        }
+    }
+}

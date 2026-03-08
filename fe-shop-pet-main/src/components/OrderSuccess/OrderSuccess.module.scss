@@ -1,0 +1,80 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal {
+    width: 460px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    animation: popup 0.3s ease;
+}
+
+.iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px auto;
+}
+
+.checkmark {
+    width: 28px;
+    height: 14px;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: rotate(-45deg);
+}
+
+.title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.button {
+    padding: 10px 24px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #45a049;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popup {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}

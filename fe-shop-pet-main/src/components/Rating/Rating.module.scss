@@ -1,0 +1,29 @@
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.full {
+    color: #ffc107;
+    font-size: 20px;
+}
+
+.half {
+    font-size: 20px;
+    background: linear-gradient(90deg, #ffc107 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.empty {
+    color: #ddd;
+    font-size: 20px;
+}
+
+.number {
+    margin-left: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+}

@@ -1,0 +1,106 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.image {
+    flex: 1;
+    img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+
+.description {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+    
+.price {
+    color: #c4300d;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.wrapper-control{
+    flex:1;
+}
+
+.control{
+
+    display: flex;
+    align-items: stretch;
+    justify-content: end;
+    $height-button: 50px;
+    $width-button: 50px;
+
+
+    input{
+        width: 80px;
+        outline: none;
+        border: none;
+        text-align: center;
+        font-size: 20px;
+        border: 1px solid gainsboro;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    button{
+        height: $height-button;
+        width: $width-button;
+        border: 1px solid gainsboro;
+        background-color: white;
+        font-size: 30px;
+        font-weight: 100;
+
+        &:first-of-type{
+            border-radius: 10px 0px 0px 10px;
+        }
+    
+        &:last-of-type{
+            border-radius: 0px 10px 10px 0px;
+        }
+
+        &:hover{
+            background-color: #c4300d;
+            color: white;
+        }
+    }
+}
+
+.remove{
+    border-radius: 5px;
+    background-color: #c4300d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-top: 10px;
+
+    &:hover{
+        opacity: 0.9;
+        color:white;
+    }
+}

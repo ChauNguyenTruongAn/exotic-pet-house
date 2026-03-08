@@ -1,0 +1,84 @@
+@use '@/styles/_variables.scss' as *;
+
+.wrapper {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+        font-weight: 600;
+        margin-right: 5px;
+        font-size: 1rem;
+        color: #444;
+        text-decoration: underline;
+    }
+
+    input[type='radio'] {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        background: #fafafa;
+        transition: all 0.25s ease;
+
+        &::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #bbb;
+            transition: 0.2s ease;
+        }
+    }
+
+    input[type='radio']:checked + label {
+        background: rgba($primary-color, 0.15);
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &::before {
+            border-color: $primary-color;
+            background: $primary-color;
+        }
+    }
+
+    label:hover {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.08);
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-wrapper {
+        gap: 0.5rem;
+
+        label {
+            font-size: 0.9rem;
+            padding: 5px 10px;
+        }
+    }
+}

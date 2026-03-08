@@ -1,0 +1,34 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 220px;
+    height: 100px;
+}
+
+.icon{
+    flex: 1;
+    margin-left: 10px;
+    i{
+        font-size: 40px;
+        color: #244d35;
+    }
+}
+
+.detail{
+    flex: 3;
+}
+
+.name{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    color: #c4300d;
+    margin-bottom: 10px;
+}
+
+.description{
+    font-size: 0.8rem;
+    color: #333;
+}

@@ -1,0 +1,113 @@
+@use "@/styles/_variables.scss" as *;
+
+/* Wrapper chung */
+.wrapper {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Tiêu đề */
+.title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #b30000;
+    border-left: 4px solid #c62828;
+    padding-left: 10px;
+}
+
+/* Layout 2 cột */
+.layout {
+    display: flex;
+    gap: 15px;
+}
+
+/* ======== BIG CARD ======== */
+.bigCard {
+    width: 40%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #ff3333;
+    background: white;
+    transition: 0.3s;
+
+    img {
+        width: 100%;
+        height: 300px;
+        /* GỌN HƠN – ĐẸP HƠN */
+        object-fit: cover;
+        display: block;
+    }
+
+    .bigTitle {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #c62828;
+        text-align: center;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* ======== GRID BÊN PHẢI ======== */
+.rightGrid {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* Card nhỏ */
+.card {
+    background: white;
+    border: 2px solid #ff3333;
+    border-radius: 6px;
+    padding-bottom: 8px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    }
+}
+
+/* Ảnh nhỏ */
+.imageBox {
+    width: 100%;
+    height: 150px;
+    /* NHỎ GỌN – CÂN ĐỐI */
+    overflow: hidden;
+    border-bottom: 2px solid #ff3333;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.name {
+    margin: 8px 0 5px;
+    font-size: 1rem;
+    /* Thu nhỏ */
+    font-weight: 700;
+    padding: 0 8px;
+    color: #c62828;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price {
+    padding: 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: black;
+}

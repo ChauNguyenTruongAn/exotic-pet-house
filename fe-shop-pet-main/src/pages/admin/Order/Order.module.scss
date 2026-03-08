@@ -1,0 +1,186 @@
+@use '@/styles/_variables.scss' as *;
+
+.wrapper {
+    padding: 20px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.container {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+}
+
+.header {
+    padding: 20px;
+    border-bottom: 1px solid #efefef;
+
+    .headerTitle {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .headerDesc {
+        font-size: 14px;
+        color: #777;
+        margin-top: 4px;
+    }
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+}
+
+.tabItem {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #f3f3f3;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.25s;
+
+    &:hover {
+        background: #e0e0e0;
+    }
+}
+
+.active {
+    background: #007bff;
+    color: white;
+}
+
+/* Search bar */
+.searchBar {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    margin: 0 20px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    input {
+        border: none;
+        outline: none;
+        flex: 1;
+        margin-left: 10px;
+    }
+}
+
+/* Table */
+.tableHeader {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 12px 20px;
+    background: #f8f8f8;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.tableContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.25s;
+
+    &:hover {
+        background: #fafafa;
+    }
+}
+
+.customerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .cusName {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .cusPhone {
+        font-size: 12px;
+        color: #777;
+    }
+}
+
+.price {
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+/* Status badge */
+.statusBadge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Colors */
+.status-pending {
+    background: #fff3cd;
+    color: #b88600;
+}
+
+.status-confirmed {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-shipping {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Action button */
+.actionBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+
+    &:hover {
+        color: #007bff;
+    }
+}
+
+.loading,
+.empty {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}

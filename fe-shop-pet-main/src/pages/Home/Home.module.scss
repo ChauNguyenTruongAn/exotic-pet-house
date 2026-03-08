@@ -1,0 +1,160 @@
+.wrapper {
+    width: 90%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    margin: 0 auto;
+    /* khoảng cách dưới footer */
+    padding-bottom: 3rem;
+}
+
+/* KHOẢNG CÁCH GIỮA CÁC BLOCK */
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    /* Giữa slider - categories - exoticSection */
+}
+
+/* BLOCK PRODUCT TOP (Pacman – Gecko – Cornsnake) */
+.topProducts {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+
+    height: 400px;
+
+    padding: 1rem 0;
+}
+
+.wrapper {
+    width: 100%;
+    background: #fff;
+}
+
+/* SECTION */
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+/* GRID */
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+}
+
+/* CARD */
+.productCard {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+    }
+
+    .productCard:hover & img {
+        transform: scale(1.08);
+    }
+}
+
+.cardBody {
+    padding: 14px;
+}
+
+.name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6f61;
+    margin-bottom: 12px;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+        flex: 1;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 0;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+}
+
+.cartBtn {
+    background: #ff6f61;
+    color: #fff;
+
+    &:hover {
+        background: #ff8a65;
+    }
+}
+
+.detailBtn {
+    background: #f1f1f1;
+    color: #333;
+
+    &:hover {
+        background: #e0e0e0;
+    }
+}
+
+/* EXOTIC */
+.exotic {
+    background: #fafafa;
+}

@@ -1,0 +1,72 @@
+@use '@/styles/_variables.scss' as *;
+
+.wrapper{
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacer{
+    height: 1px;
+    background-color: black;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.info-input{
+    border-radius: 10px;
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 10px;
+    border-color: grey;
+    
+    &:focus{
+        border-radius: 10px;
+        outline: none;
+        border-color: grey;
+    }
+}
+
+.btn-login {
+    margin-top: 40px;
+    border-radius: 50px;
+    height: 50px;
+    width: 200px;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    background: white;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease; // hiệu ứng mượt hơn khi hover
+
+    &:hover {
+        cursor: pointer; // ✅ hiện bàn tay khi hover
+        background: $primary-color;
+        color: white;
+    }
+}
+
+.link-forgot-password{
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.link-signup{
+    color: #000;
+    text-decoration: none;
+
+    &:hover{
+        color: rgb(13, 231, 125);
+    }
+}
